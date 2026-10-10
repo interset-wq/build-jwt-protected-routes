@@ -1,0 +1,203 @@
+:root {
+  --primary: #4f6ef7;
+  --primary-hover: #3d5af1;
+  --danger: #e5484d;
+  --bg: #f6f7fb;
+  --card-bg: #ffffff;
+  --text: #1f2430;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 表单卡片 */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  max-width: 400px;
+  margin: 40px auto;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field input:focus {
+  border-color: var(--primary);
+}
+
+/* 密码框 + 显示/隐藏切换 */
+.pwd-wrap {
+  position: relative;
+}
+
+.pwd-wrap input {
+  padding-right: 56px;
+}
+
+.pwd-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  color: var(--primary);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 6px;
+  font-family: inherit;
+}
+
+.pwd-toggle:hover {
+  text-decoration: underline;
+}
+
+/* 按钮 */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn-outline:hover {
+  background: rgba(79, 110, 247, 0.08);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.btn-danger:hover {
+  background: rgba(229, 72, 77, 0.08);
+}
+
+/* 提示信息 */
+.msg {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.msg-success {
+  background: #e8f7ee;
+  color: #18794e;
+}
+
+.msg-error {
+  background: #fdecec;
+  color: var(--danger);
+}
+
+/* 表格 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.table th {
+  background: #fafbfc;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.badge-admin {
+  background: #fdeee8;
+  color: #c2521c;
+}
+
+.badge-user {
+  background: #e8f0fe;
+  color: var(--primary);
+}
