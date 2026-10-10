@@ -1,0 +1,16 @@
+{
+  "name": "jwt-auth-api",
+  "version": "1.0.0",
+  "description": "JWT Authentication API with role-based authorization",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file .env index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.2.1",
+    "helmet": "^8.2.0",
+    "jsonwebtoken": "^9.0.3"
+  }
+}

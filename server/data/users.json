@@ -1,0 +1,16 @@
+[
+  {
+    "id": "f8a075d6-d5f2-47dc-bca6-485474973358",
+    "email": "admin@test.com",
+    "passwordHash": "$2b$10$j6DgIABRHjY1k/pohat34.eHl6tEESXNixQXhP3dpnkTWKiaXPieu",
+    "provider": "local",
+    "role": "user"
+  },
+  {
+    "id": "11111111-1111-1111-1111-111111111111",
+    "email": "admin@example.com",
+    "passwordHash": "$2b$10$QnaAPIv4DTpPV8FBjDYtNuiyersIY8q/bv21BE73Sa6yonqmQiH1C",
+    "provider": "local",
+    "role": "admin"
+  }
+]
