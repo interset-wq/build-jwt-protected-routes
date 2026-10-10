@@ -2,6 +2,8 @@
 
 基于 JWT 的认证 / 授权演示项目：Express 后端 + Vue 3 前端。
 
+**在线演示**：https://build-jwt-protected-routes.vercel.app
+
 - 后端：Express 5 + jsonwebtoken + bcryptjs + helmet，JSON 文件模拟数据库
 - 前端：Vite + Vue 3 + vue-router + axios，token 存 localStorage，拦截器自动携带 Bearer
 - 理论与实现讲解见 [docs/jwt.md](docs/jwt.md) 和 [docs/jwt-with-express.md](docs/jwt-with-express.md)
