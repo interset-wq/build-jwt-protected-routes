@@ -1,0 +1,58 @@
+# JWT, JSON Web Token
+
+## 认证Authentication和授权Authorization 
+
+在后端代码中，授权通常通过中间件函数实现，这些函数在授予访问某些页面或数据之前，会检查用户角色或特定权限。
+
+**认证必须始终先发生，然后才是授权。**在你确切知道某人是谁之前，不能决定给他们什么权限。
+
+认证是打开前门的钥匙，而授权决定你进入室内后可以进入哪些房间。
+
+### 认证
+
+> Who are you? 你是谁？
+
+有三种常用方式：
+
+- 你知道的东西：密码、PIN、安全问题
+- 你拥有的东西：能接受验证码的手机、能产生一次性密码的2FA认证器（Microsoft Authenticator）
+- 你是什么：生物信息，例如指纹、人脸识别
+
+### 授权
+
+> What permissions does this specific identity have? 这个人有什么权限？
+
+常见用户角色：
+
+- 标准用户：可以编辑自己的个人资料，但不能查看其他用户的私人账单信息
+- 编辑者：可以撰写和发布博客文章，但不能删除整个网站代码库
+- 管理员：拥有完全权限，可以修改数据库、删除用户和更改系统范围的设置
+
+## JWT
+
+JWT 是服务器在用户成功登录后发给用户的一张数字钥匙卡。用户在每次后续请求时向服务器出示这张钥匙卡，以证明他们的身份，而无需重新输入密码。
+
+服务器不再在自己的内存中记住每个活跃用户，而是通过一个简单的四步流程将责任转移给客户端：
+
+- 登录Login： 用户将用户名和密码或其他登录方式发送给服务器。
+- 签发Issue： 服务器将凭证与注册时保存的凭证进行验证。如果正确，服务器生成一个 JWT 并发送给用户。
+- 保存Storage： 客户端接收 JWT 并保存它，通常保存在浏览器 cookie 或本地存储中。
+- 请求Request： 对于每个未来对受保护路由的请求，客户端会自动携带 JWT。服务器验证令牌并授予访问权限。
+
+### JWT 的组成部分
+
+它由三个不同部分组成，之间用点分隔。第一部分是 Header，第二部分是 Payload，第三部分是 Signature
+
+```
+header.payload.signature
+```
+
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3OCIsIm5hbWUiOiJKYW5lIERvZSIsImFkbWluIjp0cnVlLCJpYXQiOjE1MTYyMzkwMjJ9.Lfu39gE9OI8rhPXbmJMorXTtVappkNMw9xq-M4HXttA
+```
+
+- 头部header 是一个编码的 JSON 对象，告诉服务器令牌的类型（JWT）以及用于保护它的哈希算法，比如 HMAC SHA256。
+- 负载payload 是令牌的中间部分。它包含实际的数据，或者说是关于用户的“声明”。这里存储的信息包括用户 ID、用户名或账户角色，比如管理员或用户。
+- 签名signature 是令牌的最后也是最关键的部分。服务器将编码后的header和payload与只有服务器知道的密钥secret-key混合，然后进行哈希运算生成签名。
+
+头部header和负载payload只是编码（Base64），而非加密。这意味着任何人都可以轻松解码并读取其中的数据。所以，绝不要在 JWT 体中存储敏感数据，比如明文密码或信用卡号码。
