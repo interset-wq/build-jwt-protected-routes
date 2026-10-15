@@ -6,6 +6,7 @@ import { readUsers } from "../utils/db.js";
 const router = express.Router();
 
 router.get("/users", authenticate, authorizeRole("admin"), (req, res) => {
+  // 每个user排除passwordHash字段
   const users = readUsers().map(({ passwordHash, ...user }) => user);
   res.json({ users });
 });
